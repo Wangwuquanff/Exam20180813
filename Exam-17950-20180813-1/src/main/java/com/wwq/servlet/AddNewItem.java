@@ -3,9 +3,10 @@ package com.wwq.servlet;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -15,12 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/Editfilm")
-public class Editfilm extends HttpServlet{
-
-	/**
-	 * 
-	 */
+@WebServlet("/AddNewItem")
+public class AddNewItem extends HttpServlet{
+	
 	private static final long serialVersionUID = 1L;
 	private static String jdbcDriver = "com.mysql.jdbc.Driver";// mysql连接驱动,无需改
 	public static String jdbcUrl = "jdbc:mysql://localhost:3306/sakila";
@@ -40,20 +38,14 @@ public class Editfilm extends HttpServlet{
 			}
 	}
 	
-
-	
-	
 	protected void service(HttpServletRequest request, HttpServletResponse response) //
 			throws ServletException, IOException {
-		
-		PreparedStatement pre = null;// 创建预编译语句对象，一般都是用这个而不用Statement
-		
 	    String xuhao = request.getParameter("xuhao");
 	    String miaoshu = request.getParameter("miaoshu");
 	    String biaoti = request.getParameter("biaoti");
 	    int flag = 0;
 		try {
-			String sql ="UPDATE film SET title="+biaoti+"," + "description="+miaoshu+"where film_id=1;" ;
+			String sql ="insert into film(title,description,language_id) values('培训','shucsh',1)" ;
 			flag = st.executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,5 +57,6 @@ public class Editfilm extends HttpServlet{
 			request.getRequestDispatcher("/success.jsp").forward(request, response);
 		}
 	}
+	
 
 }

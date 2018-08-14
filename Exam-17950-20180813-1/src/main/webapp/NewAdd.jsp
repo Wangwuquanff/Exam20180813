@@ -23,7 +23,7 @@
     </br>
     </br>
     <h1 style="color:red">填写信息</h1>
-    <form id="indexform" name="indexForm" action="" method="get">
+    <form id="indexform" name="indexForm" action="AddNewItem" method="get">
         <table border="0">
              <tr>
                 <td>标题：</td>
