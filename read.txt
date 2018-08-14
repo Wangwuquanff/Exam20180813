@@ -1,0 +1,5 @@
+Github地址：https://github.com/Wangwuquanff/Exam20180813.git
+使用的是UTF-8 编码， JDK1.8
+运行数据库：修改过部分表与原来不是一样的
+数据库用户名：root
+数据库密码：root
